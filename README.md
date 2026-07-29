@@ -1,43 +1,47 @@
 # Solidity Copilot
 
-An evaluation-first research project for generating Solidity contracts from constrained specifications and reference-contract context.
+A hands-on project for turning example contract specs into Solidity code, then checking what the model actually produces.
 
-## Status
+## What this is
 
-Experimental. The project begins by defining the task, legal data sources, and a reproducible evaluation harness before committing to fine-tuning.
+This is a learning-first build.
 
-## V1 objective
+The goal is to explore a small, practical workflow:
 
-Given a structured contract request and optional reference-contract context, generate a self-contained Solidity implementation that:
+1. give the model a contract prompt or reference contract
+2. have it generate Solidity output
+3. inspect the result
+4. test or compile it
+5. repeat with better examples and better prompts
 
-1. compiles with a pinned `solc` version;
-2. passes generated or curated Foundry tests;
-3. respects explicit interface and invariant requirements; and
-4. is clearly labeled as experimental and not production-audited.
+## Starting point
 
-## Why baseline before LoRA
+We are keeping the first version flexible.
 
-LoRA or QLoRA is a candidate adaptation method, not a starting assumption. We first benchmark a capable base model with retrieval and few-shot prompting. Fine-tuning is justified only if it closes measured failures such as repeated Solidity/Foundry syntax errors, inconsistent project conventions, or weak performance on the held-out task distribution.
+That means:
+- no heavy central plan
+- no rigid data governance system up front
+- no early fine-tuning assumptions
+- no fake confidence about production readiness
 
-## Initial workstreams
+## Good first milestones
 
-- Define the task boundary and JSONL data contract.
-- Curate licensed, attributable contract examples.
-- Build a baseline generation benchmark.
-- Build compile, test, and security-oriented evaluation gates.
-- Run a LoRA/QLoRA experiment only after the baseline report.
+- try a few example contract prompts by hand
+- see what a base model can do before training anything
+- learn where the failures are: syntax, structure, missing invariants, style, or reasoning
+- decide later whether retrieval, prompt engineering, LoRA, or something else is worth it
 
 ## Safety boundary
 
-Generated contracts are educational and experimental artifacts. They are not audited, deployment-ready financial software. No private keys, live deployment automation, or mainnet transaction paths belong in this repository.
+Generated contracts are experimental artifacts. They are not audited, deployment-ready financial software. No private keys, live deployment automation, or mainnet transaction paths belong here.
 
-## Repository map
+## Repo layout
 
-- `docs/v1.md` — v1 scope, data schema, and evaluation plan.
-- `data/` — local-only datasets and manifests; raw source corpora are ignored by Git.
-- `evals/` — evaluation harnesses and fixtures.
-- `training/` — reproducible training configurations after the baseline gate.
+- `README.md` - project overview
+- `scripts/` - helper scripts when we need them
+- `tests/` - examples and checks as the project grows
+- `notes/` - scratch notes and experiments if needed
 
 ## License
 
-MIT. Source examples retain their own upstream licenses and attribution requirements.
+MIT.
