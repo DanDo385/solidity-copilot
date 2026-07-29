@@ -19,18 +19,13 @@ Given a structured contract request and optional reference-contract context, gen
 
 LoRA or QLoRA is a candidate adaptation method, not a starting assumption. We first benchmark a capable base model with retrieval and few-shot prompting. Fine-tuning is justified only if it closes measured failures such as repeated Solidity/Foundry syntax errors, inconsistent project conventions, or weak performance on the held-out task distribution.
 
-## V1 contract and workstreams
+## Initial workstreams
 
-The normative task, JSONL, split, contamination, metric, and model-decision contracts are defined in [`docs/v1.md`](docs/v1.md). V1 keeps evaluator-owned hidden tests separate from candidate-generated tests and requires immutable provenance for every source artifact.
-
-Implementation proceeds in evidence-gated order:
-
-1. version schemas and validators;
-2. build the licensed provenance and lineage pipeline;
-3. build the isolated candidate I/O and Forge evaluation harness;
-4. freeze contamination-checked validation data;
-5. benchmark structured prompting, few-shot, and train-only retrieval; and
-6. consider one bounded LoRA/QLoRA pilot only if the documented readiness and promotion gates pass.
+- Define the task boundary and JSONL data contract.
+- Curate licensed, attributable contract examples.
+- Build a baseline generation benchmark.
+- Build compile, test, and security-oriented evaluation gates.
+- Run a LoRA/QLoRA experiment only after the baseline report.
 
 ## Safety boundary
 
@@ -38,10 +33,10 @@ Generated contracts are educational and experimental artifacts. They are not aud
 
 ## Repository map
 
-- `docs/v1.md`: V1 scope, data schema, and evaluation plan.
-- `data/`: local-only datasets and manifests; raw source corpora are ignored by Git.
-- `evals/`: evaluation harnesses and fixtures.
-- `training/`: reproducible training configurations after the baseline gate.
+- `docs/v1.md` — v1 scope, data schema, and evaluation plan.
+- `data/` — local-only datasets and manifests; raw source corpora are ignored by Git.
+- `evals/` — evaluation harnesses and fixtures.
+- `training/` — reproducible training configurations after the baseline gate.
 
 ## License
 
