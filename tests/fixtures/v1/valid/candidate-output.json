@@ -1,7 +1,0 @@
-{
-  "schema_version":"1.0.0",
-  "task_id":"task_01J00000000000000000000000",
-  "files":[{"path":"src/Example.sol","content":"// SPDX-License-Identifier: MIT\npragma solidity 0.8.26;\ncontract Example {}\n"}],
-  "generated_tests":[{"path":"test/ExampleCandidate.t.sol","content":"pragma solidity 0.8.26;\ncontract ExampleCandidateTest {}\n"}],
-  "assumptions":[]
-}

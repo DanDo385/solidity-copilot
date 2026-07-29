@@ -32,30 +32,6 @@ Implementation proceeds in evidence-gated order:
 5. benchmark structured prompting, few-shot, and train-only retrieval; and
 6. consider one bounded LoRA/QLoRA pilot only if the documented readiness and promotion gates pass.
 
-## V1 schemas and validation
-
-Versioned Draft 2020-12 JSON Schemas live in `schemas/v1/` for:
-
-- candidate-visible task input;
-- candidate JSON output; and
-- canonical JSONL records.
-
-Validate one document with the dependency-free CLI:
-
-```sh
-python3 scripts/validate_v1.py candidate-input path/to/task.json
-python3 scripts/validate_v1.py candidate-output path/to/output.json
-python3 scripts/validate_v1.py canonical-record path/to/record.json
-```
-
-Run the focused schema and validator tests with:
-
-```sh
-python3 -m unittest tests/test_validate_v1.py -v
-```
-
-All committed fixtures are synthetic. The validator rejects duplicate JSON keys and enforces exact compiler pins, safe unique paths and identifiers, byte-accurate SHA-256 digests, immutable artifact provenance, approved redistribution/modification terms, target/output consistency, and evaluator-owned hidden-test separation.
-
 ## Safety boundary
 
 Generated contracts are educational and experimental artifacts. They are not audited, deployment-ready financial software. No private keys, live deployment automation, or mainnet transaction paths belong in this repository.

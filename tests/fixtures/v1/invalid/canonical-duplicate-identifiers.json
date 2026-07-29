@@ -1,1 +1,0 @@
-{"schema_version":"1.0.0","task":{"requirements":[{"id":"R1","text":"first","kind":"functional","priority":"must"},{"id":"R1","text":"duplicate","kind":"functional","priority":"must"}],"invariants":[]}}
