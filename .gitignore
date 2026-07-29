@@ -1,0 +1,33 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Node
+node_modules/
+dist/
+
+# Foundry
+cache/
+out/
+broadcast/
+
+# Local datasets, model artifacts, and experiment output
+data/raw/
+data/processed/
+models/
+checkpoints/
+runs/
+wandb/
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
