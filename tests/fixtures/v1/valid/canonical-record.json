@@ -1,0 +1,27 @@
+{
+  "schema_version":"1.0.0",
+  "id":"task_01J00000000000000000000000",
+  "split_group_id":"synthetic.example/token-family",
+  "task_family":"access-controlled-token",
+  "provenance":{
+    "origin":{"type":"git","url":"https://example.invalid/synthetic.git","revision":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","repository_snapshot_sha256":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"},
+    "artifacts":[
+      {"artifact_id":"required-interface","path":"src/interfaces/IExample.sol","blob_sha256":"b08b5f61d701aa814116abe2ba96ee00cc2c694ba948c2267b1f79995bbaa660","retrieved_from":"https://example.invalid/raw/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/src/interfaces/IExample.sol"},
+      {"artifact_id":"reference-access-control","path":"src/reference/AccessPattern.sol","blob_sha256":"936f8f2df10ea0a5ac9b7e91a1558292a1b40a65c2dfcc212950fde646ca7476","retrieved_from":"https://example.invalid/raw/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/src/reference/AccessPattern.sol"},
+      {"artifact_id":"public-interface-test","path":"test/public/ExampleInterface.t.sol","blob_sha256":"be3caca34a537f8169e8df14d7b52224803a0ea252d7480b1d315159c01305a6","retrieved_from":"https://example.invalid/raw/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/test/public/ExampleInterface.t.sol"},
+      {"artifact_id":"target-example-sol","path":"src/Example.sol","blob_sha256":"e0cf2811c881bd1692da6875c8e609cc1f2b2219330da4282da5dc24ce557e11","retrieved_from":"https://example.invalid/raw/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/src/Example.sol"},
+      {"artifact_id":"hidden-behavior-test","path":"test/hidden/ExampleBehavior.t.sol","blob_sha256":"ab3b55c3bd3038016398ed9379cc0045a913a3d5896db431dea284c5d37a6791","retrieved_from":"https://example.invalid/raw/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/test/hidden/ExampleBehavior.t.sol"},
+      {"artifact_id":"slither-config","path":"slither.config.json","blob_sha256":"ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356","retrieved_from":"https://example.invalid/raw/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/slither.config.json"}
+    ],
+    "derivation":{"method":"synthetic-fixture-v1","parent_record_ids":[],"transform_version":"fixture-v1"}
+  },
+  "license":{"spdx_expression":"MIT","license_file_path":"LICENSE","license_file_sha256":"cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc","source_headers_verified":true,"redistribution_allowed":true,"modification_allowed":true,"attribution_notice":"Synthetic fixture, no real corpus source","review_status":"approved","reviewed_by":"synthetic-policy-v1","reviewed_at":"2026-01-01T00:00:00Z"},
+  "compiler":{"solc_version":"0.8.26","evm_version":"cancun","optimizer_enabled":true,"optimizer_runs":200,"via_ir":false,"foundry_profile":"v1"},
+  "task":{"title":"Implement a synthetic access-controlled token","summary":"Synthetic fixture only","requirements":[{"id":"R1","text":"Only MINTER_ROLE may mint","kind":"authorization","priority":"must"}],"interfaces":[{"artifact_id":"required-interface","contract":"IExample","required_signatures":["mint(address,uint256)"]}],"invariants":[{"id":"I1","text":"Total supply equals aggregate balances","check":"hidden-test:invariant_totalSupply"}],"constraints":{"allowed_dependencies":["forge-std@1.9.4"],"forbidden_operations":["selfdestruct","delegatecall"],"allowed_output_paths":["src/Example.sol","test/ExampleCandidate.t.sol"],"required_target_paths":["src/Example.sol"],"max_output_bytes":100000}},
+  "required_source_files":[{"artifact_id":"required-interface","path":"src/interfaces/IExample.sol","role":"interface","content":"// SPDX-License-Identifier: MIT\npragma solidity 0.8.26;\ninterface IExample { function mint(address to, uint256 amount) external; }\n","content_sha256":"b08b5f61d701aa814116abe2ba96ee00cc2c694ba948c2267b1f79995bbaa660"}],
+  "reference_context":[{"artifact_id":"reference-access-control","path":"src/reference/AccessPattern.sol","line_range":{"start":1,"end":3},"purpose":"synthetic access-control convention","content":"// SPDX-License-Identifier: MIT\npragma solidity 0.8.26;\nabstract contract AccessPattern {}\n","content_sha256":"936f8f2df10ea0a5ac9b7e91a1558292a1b40a65c2dfcc212950fde646ca7476"}],
+  "public_tests":[{"artifact_id":"public-interface-test","path":"test/public/ExampleInterface.t.sol","content":"// synthetic public interface test\n","content_sha256":"be3caca34a537f8169e8df14d7b52224803a0ea252d7480b1d315159c01305a6"}],
+  "target":{"files":[{"artifact_id":"target-example-sol","path":"src/Example.sol","content":"// SPDX-License-Identifier: MIT\npragma solidity 0.8.26;\ncontract Example {}\n","content_sha256":"e0cf2811c881bd1692da6875c8e609cc1f2b2219330da4282da5dc24ce557e11"}]},
+  "tests":{"hidden":[{"artifact_id":"hidden-behavior-test","path":"test/hidden/ExampleBehavior.t.sol","content":"// synthetic evaluator-owned hidden test\n","content_sha256":"ab3b55c3bd3038016398ed9379cc0045a913a3d5896db431dea284c5d37a6791","covers":["R1","I1"],"kind":"behavior"}],"required_test_ids":["R1","I1"]},
+  "security":{"slither_config_artifact_id":"slither-config","slither_config_sha256":"ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356","allowed_findings":[],"manual_review_required":true}
+}

@@ -1,0 +1,1 @@
+{"schema_version":"1.0.0","task_id":"task_01J00000000000000000000000","files":[{"path":"src/Example.sol","content":"contract Example {}"}],"generated_tests":[{"path":"src/Example.sol","content":"contract Duplicate {}"}],"assumptions":[]}
