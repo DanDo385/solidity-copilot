@@ -1,0 +1,10 @@
+[profile.default]
+src = "smoke/contracts"
+test = "smoke/test"
+out = "out"
+cache_path = "cache"
+solc = "0.8.30"
+evm_version = "shanghai"
+
+[fmt]
+line_length = 100

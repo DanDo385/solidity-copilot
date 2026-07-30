@@ -1,0 +1,16 @@
+Generate one self-contained Solidity source file for the specification below.
+
+Output rules:
+- Return Solidity source only. No Markdown fences and no explanation.
+- Use pragma solidity ^0.8.30.
+- Use no imports or external dependencies.
+
+Contract: PiggyBank
+Requirements:
+- The deployer is stored as an immutable public owner.
+- Accept Ether through receive(). Emit Deposited(address indexed sender, uint256 amount).
+- expose withdrawAll() callable only by owner.
+- withdrawAll() sends the full contract balance to owner and emits Withdrawn(address indexed owner, uint256 amount).
+- A non-owner call to withdrawAll() must revert with a custom error Unauthorized(address caller).
+- If the owner cannot receive Ether, the withdrawal must revert rather than silently lose funds.
+- Follow checks-effects-interactions where applicable.

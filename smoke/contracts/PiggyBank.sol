@@ -1,0 +1,31 @@
+pragma solidity ^0.8.30;
+
+contract PiggyBank {
+    address public immutable owner;
+
+    event Deposited(address indexed sender, uint256 amount);
+    event Withdrawn(address indexed owner, uint256 amount);
+
+    error Unauthorized(address caller);
+
+    constructor() {
+        owner = msg.sender;
+    }
+
+    receive() external payable {
+        emit Deposited(msg.sender, msg.value);
+    }
+
+    function withdrawAll() external {
+        if (msg.sender != owner) {
+            revert Unauthorized(msg.sender);
+        }
+
+        uint256 balance = address(this).balance;
+
+        (bool success,) = owner.call{value: balance}("");
+        require(success, "Failed to send Ether");
+
+        emit Withdrawn(owner, balance);
+    }
+}

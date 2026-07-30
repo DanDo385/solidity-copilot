@@ -1,0 +1,18 @@
+Generate one self-contained Solidity source file for the specification below.
+
+Output rules:
+- Return Solidity source only. No Markdown fences and no explanation.
+- Use pragma solidity ^0.8.30.
+- Use no imports or external dependencies.
+
+Contract: SimpleToken
+Requirements:
+- Constructor takes uint256 initialSupply and assigns all units to the deployer.
+- Expose public constant name = "Smoke Token", symbol = "SMOKE", and decimals = 18.
+- Expose public totalSupply and public balanceOf(address).
+- expose transfer(address to, uint256 amount) returning bool.
+- transfer must revert when to is address(0) or sender balance is insufficient.
+- On success, debit sender, credit recipient, emit Transfer(address indexed from, address indexed to, uint256 value), and return true.
+- Emit Transfer(address(0), deployer, initialSupply) in the constructor.
+- Use custom errors ZeroAddress() and InsufficientBalance(uint256 available, uint256 required).
+- Do not implement approvals, minting after construction, burning, fees, pausing, or ownership.

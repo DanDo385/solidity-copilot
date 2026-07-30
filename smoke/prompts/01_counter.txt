@@ -1,0 +1,14 @@
+Generate one self-contained Solidity source file for the specification below.
+
+Output rules:
+- Return Solidity source only. No Markdown fences and no explanation.
+- Use pragma solidity ^0.8.30.
+- Use no imports or external dependencies.
+
+Contract: Counter
+Requirements:
+- Store a public uint256 named count, initially zero.
+- expose increment() callable by anyone; it increases count by exactly 1.
+- expose reset() callable by anyone; it sets count to zero.
+- Emit CountChanged(uint256 oldCount, uint256 newCount) after each successful increment or reset.
+- Rely on Solidity 0.8 checked arithmetic. Do not use unchecked blocks.
