@@ -1,0 +1,132 @@
+{
+  "captureProvenance": {
+    "method": "deterministic rendered terminal-style replay of asserted local CLI output",
+    "servedUi": "local CLI",
+    "transcriptNormalization": [
+      "Foundry elapsed-time fields are replaced with <elapsed> before rendering and hashing."
+    ],
+    "modelCallsMade": false,
+    "privateKeyAccessed": false,
+    "broadcastAttempted": false,
+    "states": [
+      {
+        "label": "Prompt-to-Solidity smoke report",
+        "filename": "01-smoke-report.png",
+        "returncode": 0,
+        "artifactSha256": "8167da74b1738d0bf78bb3f4e357051f6df0aee5eb2d3caa2b75519165bd749b",
+        "transcriptSha256": "98476fb3eba53f3c33551aa52025a140888d1b7194035df2ae49482c4ab4d4d3",
+        "argv": [
+          "sed",
+          "-n",
+          "1,18p",
+          "smoke/REPORT.md"
+        ]
+      },
+      {
+        "label": "Structured Counter specification",
+        "filename": "02-counter-spec.png",
+        "returncode": 0,
+        "artifactSha256": "bcaadcb410f821564ad02f6697b31879d4658ab1ee2a3082477334abfd3fe64e",
+        "transcriptSha256": "447acfc18da8a7bea26ef30975f28cc8fa5accebc108bfc60233ec729425880b",
+        "argv": [
+          "sed",
+          "-n",
+          "1,40p",
+          "smoke/prompts/01_counter.txt"
+        ]
+      },
+      {
+        "label": "Raw model output format failure",
+        "filename": "03-output-format-failure.png",
+        "returncode": 0,
+        "artifactSha256": "20a88c3c26f54e32f2898700dd5275f30abae0049072da93c6e27ac04892457f",
+        "transcriptSha256": "ae5c16bca2ec89614013368a10d0e355589393d5f3cc9b037006b83e02488f72",
+        "argv": [
+          "sed",
+          "-n",
+          "1,40p",
+          "smoke/raw/01_counter.raw.txt"
+        ]
+      },
+      {
+        "label": "Normalized compile candidate",
+        "filename": "04-normalized-compile-candidate.png",
+        "returncode": 0,
+        "artifactSha256": "f8b669ec0da2e03c266b909044e7e41b7730b31fb7798fdf0e4cc4ec8fd0b519",
+        "transcriptSha256": "5f23bfbb63c107743ff2f7b4b6e04acace9b90a156bb6e8fd5fb0e8734f70197",
+        "argv": [
+          "sed",
+          "-n",
+          "1,80p",
+          "smoke/contracts/Counter.sol"
+        ]
+      },
+      {
+        "label": "Counter behavioral smoke tests",
+        "filename": "05-counter-smoke-tests.png",
+        "returncode": 0,
+        "artifactSha256": "08105e03e5055cfa2dea185db9157a28c22e113e0415f9fdea41f079c0879c12",
+        "transcriptSha256": "dda8169a8e6775f6d5976133f68fa8ed077639f9bc75e672760ceab53a73fa29",
+        "argv": [
+          "forge",
+          "test",
+          "--threads",
+          "1",
+          "--match-contract",
+          "CounterSmokeTest"
+        ]
+      },
+      {
+        "label": "PiggyBank access-control smoke tests",
+        "filename": "06-piggy-bank-smoke-tests.png",
+        "returncode": 0,
+        "artifactSha256": "ea410f8b0dbbd0eb62532b631bc6b0988e32020d604054754e54927146d633f0",
+        "transcriptSha256": "0fca39257d9fad10bed74ac4802a3c773e3870496d50686fc1fbb2f22a65bb10",
+        "argv": [
+          "forge",
+          "test",
+          "--threads",
+          "1",
+          "--match-contract",
+          "PiggyBankSmokeTest"
+        ]
+      },
+      {
+        "label": "SimpleToken behavior and revert tests",
+        "filename": "07-simple-token-smoke-tests.png",
+        "returncode": 0,
+        "artifactSha256": "540eed56ccbcfd52153dca2e1251be26dad4c6d16c6ca5569a92fc5e19ef0927",
+        "transcriptSha256": "9c3e26f3b2c272b937cd835f8dea2f2b419481238b87088877225d5fb525f07f",
+        "argv": [
+          "forge",
+          "test",
+          "--threads",
+          "1",
+          "--match-contract",
+          "SimpleTokenSmokeTest"
+        ]
+      },
+      {
+        "label": "Full Foundry smoke suite",
+        "filename": "08-full-smoke-suite.png",
+        "returncode": 0,
+        "artifactSha256": "e3b1d61b4951478537107530b950f6d28784e75e046bb6b2fd9d6528ff4a248d",
+        "transcriptSha256": "8fc318af868fc37cd7a45e15acb529c937cd659c22ccd6983047565a6a4f2c83",
+        "argv": [
+          "forge",
+          "test",
+          "--threads",
+          "1"
+        ]
+      }
+    ]
+  },
+  "shortClip": {
+    "localPath": "public/demos/short/short.mp4",
+    "youtubeUrl": "https://www.youtube.com/watch?v=EHUMwDOO9IU"
+  },
+  "longClip": {
+    "localPath": "public/demos/detailed/detailed.mp4",
+    "youtubeUrl": "https://www.youtube.com/watch?v=hutz7hgIflE"
+  }
+}

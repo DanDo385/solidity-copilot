@@ -35,6 +35,23 @@ That means:
 
 Generated contracts are experimental artifacts. They are not audited, deployment-ready financial software. No private keys, live deployment automation, or mainnet transaction paths belong here.
 
+## Portfolio media
+
+![Prompt-to-Solidity evidence walkthrough](public/gif/preview.gif)
+
+The evidence kit is a deterministic rendered terminal-style replay of asserted local CLI output. Foundry elapsed-time fields are normalized to `<elapsed>` before rendering and hashing. It shows the structured Counter specification, a raw response that violated the source-only instruction with Markdown fences, the normalized compile candidate, and Foundry smoke results for Counter, PiggyBank, and SimpleToken. It makes no model calls, accesses no private keys, and does not deploy or broadcast anything.
+
+- [Short walkthrough](https://www.youtube.com/watch?v=EHUMwDOO9IU)
+- [Full walkthrough](https://www.youtube.com/watch?v=hutz7hgIflE)
+- [Raw output format failure](public/screenshots/03-output-format-failure.png)
+- [Full Foundry smoke suite](public/screenshots/08-full-smoke-suite.png)
+
+Regenerate the kit after changing its inputs. It requires Python 3.10+, Pillow, FFmpeg, and Foundry. Install Pillow with `python3 -m pip install Pillow`; install FFmpeg and Foundry through your platform's package manager. The renderer uses Menlo on macOS, DejaVu Sans Mono when available elsewhere, then Pillow's default font.
+
+```sh
+python3 scripts/capture_cli_media.py
+```
+
 ## Repo layout
 
 - `README.md` - project overview
